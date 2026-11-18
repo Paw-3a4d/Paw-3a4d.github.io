@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar | Portal E&E</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ee-auth-body">
+<main class="ee-auth-wrap">
+  <a class="ee-auth-marca" href="login.html"><span>E&E</span><small>EMPRESA & EFICIENTE</small></a>
+  <section class="ee-auth-card">
+    <div class="ee-auth-intro"><span class="ee-etiqueta">ACESSO DO FUNCIONÁRIO</span><h1>Bem-vindo de volta</h1><p>Entre com seu e-mail e senha de funcionário para acessar a plataforma.</p></div>
+    <form id="form-login" class="ee-auth-form">
+      <label>E-mail<input name="email" type="email" autocomplete="username" placeholder="seuemail@exemplo.com" required></label>
+      <label>Senha<input name="senha" type="password" autocomplete="current-password" placeholder="Digite sua senha" required></label>
+      <p class="ee-auth-erro" id="login-erro" role="alert"></p>
+      <button class="ee-auth-botao" type="submit">Entrar no painel</button>
+    </form>
+    <p class="ee-auth-alternativa">Ainda não tem cadastro? <a href="cadastro.html">Cadastrar funcionário</a></p>
+  </section>
+  <p class="ee-auth-rodape">Portal E&E · Gestão sustentável com tecnologia</p>
+</main>
+<script src="auth.js"></script>
+</body>
+</html>

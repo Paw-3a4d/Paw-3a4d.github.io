@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cadastro de funcionário | Portal E&E</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="ee-auth-body">
+<main class="ee-auth-wrap">
+  <a class="ee-auth-marca" href="login.html"><span>E&E</span><small>EMPRESA & EFICIENTE</small></a>
+  <section class="ee-auth-card">
+    <div class="ee-auth-intro"><span class="ee-etiqueta">NOVO ACESSO</span><h1>Cadastro de funcionário</h1><p>Crie seu acesso pessoal para utilizar as ferramentas da plataforma.</p></div>
+    <form id="form-cadastro" class="ee-auth-form">
+      <label>Nome completo<input name="nome" autocomplete="name" placeholder="Digite seu nome" required></label>
+      <label>Setor / departamento<input name="setor" placeholder="Ex.: Recursos Humanos, TI, Financeiro"></label>
+      <label>Cargo / função<input name="cargo" placeholder="Ex.: Assistente administrativo"></label>
+      <label>E-mail<input name="email" type="email" autocomplete="email" placeholder="seuemail@exemplo.com" required></label>
+      <label>Senha<input name="senha" type="password" minlength="6" autocomplete="new-password" placeholder="Mínimo de 6 caracteres" required></label>
+      <label>Confirmar senha<input name="confirmar" type="password" minlength="6" autocomplete="new-password" required></label>
+      <p class="ee-auth-erro" id="cadastro-erro" role="alert"></p>
+      <button class="ee-auth-botao" type="submit">Cadastrar funcionário</button>
+    </form>
+    <p class="ee-auth-aviso">Protótipo acadêmico: os dados ficam salvos somente neste navegador. Não utilize senhas pessoais ou dados reais sensíveis.</p>
+    <p class="ee-auth-alternativa">Já possui cadastro? <a href="login.html">Voltar para o login</a></p>
+  </section>
+  <p class="ee-auth-rodape">Portal E&E · Gestão sustentável com tecnologia</p>
+</main>
+<script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portal da E&E</title>
+<link rel="stylesheet" href="style.css">
+<script>
+  (function(){
+    try {
+      if (!localStorage.getItem("empresaEficienciaSessao")) {
+        window.location.replace("login.html");
+      }
+    } catch (e) { window.location.replace("login.html"); }
+  })();
+</script>
+</head>
+<body>
+<!-- Controles de navegação: radios ocultos -->
+<input class="vh" type="radio" name="area" id="tab-inst" checked>
+<input class="vh" type="radio" name="area" id="tab-fun">
+<input class="vh" type="radio" name="area" id="tab-adm">
+<input class="vh" type="radio" name="area" id="tab-ee">
+<input class="vh" type="radio" name="sub-inst" id="si-home" checked>
+<input class="vh" type="radio" name="sub-inst" id="si-mural">
+<input class="vh" type="radio" name="sub-inst" id="si-manual">
+<input class="vh" type="radio" name="sub-fun" id="sf-refeicao" checked>
+<input class="vh" type="radio" name="sub-fun" id="sf-bazar">
+<input class="vh" type="radio" name="sub-fun" id="sf-reuniao">
+<input class="vh" type="radio" name="sub-fun" id="sf-formularios">
+<input class="vh" type="radio" name="sub-adm" id="sa-estoque" checked>
+<input class="vh" type="radio" name="sub-adm" id="sa-consumo">
+<input class="vh" type="radio" name="sub-adm" id="sa-impressao">
+<header class="topo">
+  <div>
+    <div class="titulo">E&E</div>
+    <div class="subtitulo">Portal da Empresa&Eficiente</div>
+  </div>
+  <div class="topo-usuario">
+    <span class="topo-usuario-legenda">Acessando como</span>
+    <strong id="usuario-atual">Funcionário</strong>
+    <button type="button" id="sair-topo">Sair</button>
+  </div>
+</header>
+<nav class="abas-area">
+  <label for="tab-inst">🌊 Institucional</label>
+  <label for="tab-fun">👤 Painel do Funcionário</label>
+  <label for="tab-adm">📊 Painel do Administrador</label>
+  <label for="tab-ee">📈 Gestão de recursos</label>
+</nav>
+<main>
+<!-- ================= INSTITUCIONAL ================= -->
+<div class="painel-area" id="painel-inst">
+  <div class="subnav">
+    <label for="si-home">Página inicial</label>
+    <label for="si-mural">Mural de conquistas</label>
+    <label for="si-manual">Manual de boas práticas</label>
+  </div>
+  <div class="subpainel" id="sp-home">
+    <div class="hero-inicial">
+      <div>
+        <h1>Menos desperdício, mais eficiência.</h1>
+        <p class="lead">
+          A plataforma ajuda empresas a controlar recursos, identificar desperdícios e melhorar a gestão, reunindo informações e ferramentas para acompanhar o uso de materiais, água e energia.
+        </p>
+        <ul class="objetivos">
+          <li>Reduzir 30% do desperdício de papel até dezembro</li>
+          <li>Cortar picos de consumo de energia por setor</li>
+          <li>Zerar sobras de refeição não planejadas no refeitório</li>
+          <li>Dar destino útil a insumos parados entre os setores</li>
+        </ul>
+      </div>
+    </div>
+    <section class="home-informacoes">
+      <h2>Sobre a plataforma</h2>
+      <p class="home-texto">
+        O Portal E&amp;E reúne em um só lugar as ferramentas para acompanhar o uso de água, energia e materiais, registrar perdas, planejar melhorias e dar visibilidade aos resultados. A ideia é simples: o que é medido pode ser melhorado, e o que é compartilhado entre setores deixa de ser desperdiçado.
+      </p>
+      <h2>Como a plataforma ajuda</h2>
+      <div class="grade">
+        <article class="cartao"><h3>💧 Economia de recursos</h3><p>Registre consumo e gastos de água, energia e materiais por setor e perceba onde o uso está acima do esperado.</p></article>
+        <article class="cartao"><h3>♻️ Menos desperdício</h3><p>Cadastre perdas com motivo, quantidade e custo estimado para identificar problemas que se repetem.</p></article>
+        <article class="cartao"><h3>📦 Controle de estoque</h3><p>Acompanhe quantidades mínimas e datas de validade, com avisos de estoque baixo e itens perto do vencimento.</p></article>
+        <article class="cartao"><h3>🍽️ Refeitório planejado</h3><p>A confirmação de almoço até as 10h permite preparar a quantidade certa e reduzir sobras de comida.</p></article>
+        <article class="cartao"><h3>🤝 Reaproveitamento</h3><p>O Bazar de Insumos mostra o que está sobrando em cada setor antes de abrir uma nova compra.</p></article>
+        <article class="cartao"><h3>📊 Decisão com dados</h3><p>Indicadores, relatórios em CSV e impressão em PDF ajudam a acompanhar metas e apresentar resultados.</p></article>
+      </div>
+
+      <h2>Como começar</h2>
+      <ol class="passos">
+        <li><strong>Entre com seu acesso.</strong> Use seu e-mail e senha de funcionário; o seu nome aparece no topo do portal.</li>
+        <li><strong>Confirme o almoço.</strong> No Painel do Funcionário, responda se vai almoçar na empresa no dia seguinte.</li>
+        <li><strong>Registre o que acontece.</strong> Na aba Gestão de recursos, lance consumos, materiais, perdas e ações de melhoria.</li>
+        <li><strong>Acompanhe os resultados.</strong> Veja os números nesta página, no Mural de conquistas e nos relatórios.</li>
+      </ol>
+
+      <h2>O que você encontra em cada área</h2>
+      <div class="grade">
+        <article class="cartao"><h3>🌊 Institucional</h3><p>Página inicial, mural de conquistas com o impacto acumulado e o manual de boas práticas para papel, energia, água e refeitório.</p></article>
+        <article class="cartao"><h3>👤 Painel do Funcionário</h3><p>Confirmação de refeição, bazar de insumos, calculadora de custo de reunião e formulários digitais para solicitações e sugestões.</p></article>
+        <article class="cartao"><h3>📊 Painel do Administrador</h3><p>Estoque e validade, gastos por setor e ranking de impressões por departamento, com filtro de críticos e normais.</p></article>
+        <article class="cartao"><h3>📈 Gestão de recursos</h3><p>Cadastro de recursos, estoque, desperdícios e plano de ação, além de resultados por período, relatórios e alertas.</p></article>
+      </div>
+
+      <h2>Dicas rápidas para economizar</h2>
+      <ul class="dicas">
+        <li>📄 Imprima só o necessário e use frente e verso como padrão.</li>
+        <li>💡 Desligue monitores, luzes e carregadores ao sair da sala.</li>
+        <li>🚰 Avise a manutenção ao notar qualquer vazamento, por menor que seja.</li>
+        <li>🍽️ Confirme o almoço até as 10h para evitar sobras.</li>
+        <li>🤝 Consulte o Bazar de Insumos antes de pedir compras.</li>
+        <li>⏱️ Use a calculadora para avaliar se a reunião precisa de tantas pessoas ou de tanto tempo.</li>
+      </ul>
+
+      <h2>Perguntas frequentes</h2>
+      <div class="faq">
+        <details><summary>Onde ficam salvos os meus dados?</summary><p>Neste protótipo, no armazenamento local do seu navegador. Não há servidor nem banco de dados online, então os dados não aparecem em outro computador ou navegador.</p></details>
+        <details><summary>Posso alterar minha resposta do almoço?</summary><p>Sim. Basta clicar novamente em &quot;Sim&quot; ou &quot;Não&quot;; vale a última resposta registrada para o dia seguinte.</p></details>
+        <details><summary>Como baixo um relatório?</summary><p>Em Gestão de recursos, abra Relatórios e escolha baixar o CSV ou imprimir / salvar em PDF.</p></details>
+        <details><summary>O que significa o alerta de estoque?</summary><p>Ele aparece quando a quantidade chega ao mínimo definido no cadastro ou quando a validade está vencida ou a até 30 dias.</p></details>
+        <details><summary>Como altero meu nome, setor ou cargo?</summary><p>Em Gestão de recursos, abra Configurações e salve o perfil; o nome no topo do portal é atualizado.</p></details>
+      </div>
+    </section>
+    <section class="home-informacoes">
+      <h2>Visão geral em números</h2>
+      <div class="ee-kpis" id="home-kpis">
+        <article class="ee-kpi"><span>Gastos registrados</span><strong id="ee-kpi-gastos">R$ 0,00</strong><small>Registros de recursos</small></article>
+        <article class="ee-kpi"><span>Consumo de água</span><strong id="ee-kpi-agua">0 L</strong><small>Total informado</small></article>
+        <article class="ee-kpi"><span>Consumo de energia</span><strong id="ee-kpi-energia">0 kWh</strong><small>Total informado</small></article>
+        <article class="ee-kpi"><span>Perdas registradas</span><strong id="ee-kpi-perdas">0</strong><small>Ocorrências cadastradas</small></article>
+        <article class="ee-kpi"><span>Custo das perdas</span><strong id="ee-kpi-custo-perdas">R$ 0,00</strong><small>Com base nos registros</small></article>
+        <article class="ee-kpi"><span>Ações concluídas</span><strong id="ee-kpi-acoes">0%</strong><small>Do total de ações</small></article>
+      </div>
+      <div class="grade">
+        <article class="cartao"><h3>Gastos por tipo de recurso</h3><div id="ee-grafico-gastos" class="ee-barras"></div></article>
+        <article class="cartao"><h3>Consumo registrado</h3><div id="ee-grafico-consumo" class="ee-barras"></div></article>
+        <article class="cartao"><h3>Avisos importantes</h3><div id="ee-resumo-alertas"></div></article>
+      </div>
+    </section>
+  </div>
+  <div class="subpainel" id="sp-mural">
+    <h2>Mural de conquistas — este mês</h2>
+    <p class="rodape-nota">
+      Acompanhe os resultados e as melhorias alcançadas pela equipe.
+    </p>
+    <div class="mural-impacto">
+      <div class="medidor-caixa">
+        <div class="legenda">
+          Impacto acumulado no ano
+        </div>
+        <svg viewBox="0 0 200 120" width="200" style="margin:0 auto;display:block;">
+          <path
+            d="M20 100 A80 80 0 0 1 180 100"
+            fill="none"
+            stroke="#123B6B"
+            stroke-width="14"
+            stroke-linecap="round"
+          />
+          <path
+            d="M20 100 A80 80 0 0 1 180 100"
+            fill="none"
+            stroke="#BFD7F2"
+            stroke-width="14"
+            stroke-linecap="round"
+            stroke-dasharray="251"
+            stroke-dashoffset="80"
+          />
+          <line
+            x1="100"
+            y1="100"
+            x2="100"
+            y2="35"
+            stroke="#D9A441"
+            stroke-width="4"
+            stroke-linecap="round"
+            transform="rotate(32 100 100)"
+          />
+          <circle
+            cx="100"
+            cy="100"
+            r="6"
+            fill="#D9A441"
+          />
+        </svg>
+        <div class="medidor-valor">
+          68%
+        </div>
+        <div class="legenda">
+          da meta anual de redução
+        </div>
+      </div>
+    </div>
+    <div class="grade">
+      <div class="cartao">
+        <div class="barra-item">
+          <div class="barra-topo">
+            <span>⚡ Energia economizada</span>
+            <span class="num">24%</span>
+          </div>
+          <div class="barra-fundo">
+            <div
+              class="barra-preenchida"
+              style="width:24%; background:var(--ambar);"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="cartao">
+        <div class="barra-item">
+          <div class="barra-topo">
+            <span>📄 Papel economizado</span>
+            <span class="num">41%</span>
+          </div>
+          <div class="barra-fundo">
+            <div
+              class="barra-preenchida"
+              style="width:41%;"
+            ></div>
+          </div>
+        </div>
+      </div>
+      <div class="cartao">
+        <div class="barra-item">
+          <div class="barra-topo">
+            <span>💧 Água economizada</span>
+            <span class="num">17%</span>
+          </div>
+          <div class="barra-fundo">
+            <div
+              class="barra-preenchida"
+              style="width:17%; background:#0A2540;"
+            ></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="subpainel" id="sp-manual">
+    <h2>Manual de boas práticas</h2>
+    <div class="post">
+      <span class="etiqueta">Papel</span>
+      <h3>
+        Imprima só o que precisa mesmo ser impresso
+      </h3>
+      <p>
+        Antes de enviar para a impressora, pergunte-se: isso pode ficar só na tela? Use frente e verso como padrão. No mês passado conseguimos reduzir 41% nas impressões.
+      </p>
+    </div>
+    <div class="post">
+      <span class="etiqueta">Energia</span>
+      <h3>
+        Apague, desligue, desconecte
+      </h3>
+      <p>
+        Monitores e carregadores continuam consumindo energia em stand-by. Desligue tudo ao sair da sala. Setores que implementaram conseguiram economizar até 32%.
+      </p>
+    </div>
+    <div class="post">
+      <span class="etiqueta">Refeitório</span>
+      <h3>
+        Confirme sua presença até às 10h
+      </h3>
+      <p>
+        Confirmar o almoço com antecedência evita sobra de comida. Quem confirma ajuda o refeitório a planejar melhor.
+      </p>
+    </div>
+    <div class="post">
+      <span class="etiqueta">Água</span>
+      <h3>
+        Torneiras inteligentes e manutenção preventiva
+      </h3>
+      <p>
+        Verifique vazamentos. Um pequeno vazamento pode desperdiçar 46 mil litros por ano. Reporte problemas pelo formulário.
+      </p>
+    </div>
+    <div class="post">
+      <span class="etiqueta">Colaboração</span>
+      <h3>
+        Use o Bazar de Insumos antes de pedir compras
+      </h3>
+      <p>
+        Encontre o que precisa em outro setor. Economiza dinheiro e reduz desperdício. Sempre consulte antes.
+      </p>
+    </div>
+  </div>
+</div>
+<!-- ================= FUNCIONÁRIO ================= -->
+<div class="painel-area" id="painel-fun">
+  <div class="subnav">
+    <label for="sf-refeicao">
+      Confirmação de refeição
+    </label>
+    <label for="sf-bazar">
+      Bazar de insumos
+    </label>
+    <label for="sf-reuniao">
+      Calculadora de reuniões
+    </label>
+    <label for="sf-formularios">
+      Formulários digitais
+    </label>
+  </div>
+  <!-- CONFIRMAÇÃO DE REFEIÇÃO -->
+  <div class="subpainel" id="sp-refeicao">
+    <h2>
+      Vou almoçar na empresa amanhã?
+    </h2>
+    <p class="rodape-nota">
+      Sua resposta ajuda o refeitório a preparar a quantidade exata.
+    </p>
+    <div class="funcionario-identificacao" style="max-width:420px;margin:14px 0;">
+      <label class="rotulo" for="nome-funcionario">Nome do funcionário</label>
+      <input type="text" id="nome-funcionario" placeholder="Digite seu nome" autocomplete="name">
+    </div>
+    <div class="escolha-refeicao">
+      <button
+        type="button"
+        id="ref-sim"
+      >
+        ✅ Sim, vou almoçar
+      </button>
+      <button
+        type="button"
+        id="ref-nao"
+      >
+        🚫 Não vou almoçar
+      </button>
+    </div>
+    <!-- Mensagem que será preenchida pelo JavaScript -->
+    <p
+      id="mensagem-refeicao"
+      class="confirmacao-envio"
+    ></p>
+    <p
+      id="contagem-refeicao"
+      class="rodape-nota"
+      style="margin-top:16px;"
+    ></p>
+    <div
+      id="historico-refeicoes"
+      style="margin-top:20px;"
+    ></div>
+  </div>
+  <!-- BAZAR -->
+  <div class="subpainel" id="sp-bazar">
+    <h2>
+      Bazar de insumos entre setores
+    </h2>
+    <p class="rodape-nota">
+      Material sobrando? Anuncie para outra equipe reaproveitar.
+    </p>
+    <div style="margin-bottom:16px;">
+      <label
+        class="rotulo"
+        for="busca-bazar"
+      >
+        Buscar por item ou setor
+      </label>
+      <input
+        type="text"
+        id="busca-bazar"
+        placeholder="ex: papel, TI, cabos..."
+      >
+    </div>
+    <div
+      class="lista-bazar"
+      id="lista-bazar"
+    ></div>
+    <h3 style="font-size:.95rem;">
+      Anunciar item sobrando
+    </h3>
+    <div class="form-inline">
+      <div>
+        <label
+          class="rotulo"
+          for="bazar-setor"
+        >
+          Setor
+        </label>
+        <select id="bazar-setor">
+          <option>RH</option>
+          <option>Financeiro</option>
+          <option>TI</option>
+          <option>Marketing</option>
+          <option>Operações</option>
+          <option>Comercial</option>
+        </select>
+      </div>
+      <div>
+        <label
+          class="rotulo"
+          for="bazar-qtd"
+        >
+          Quantidade
+        </label>
+        <input
+          type="text"
+          id="bazar-qtd"
+          placeholder="ex: 3 caixas"
+        >
+      </div>
+      <div>
+        <label
+          class="rotulo"
+          for="bazar-item"
+        >
+          Item
+        </label>
+        <input
+          type="text"
+          id="bazar-item"
+          placeholder="ex: Papel A4 sobrando"
+        >
+      </div>
+      <div>
+        <label class="rotulo">
+          &nbsp;
+        </label>
+        <button
+          class="btn"
+          id="btn-bazar-anunciar"
+          type="button"
+        >
+          Anunciar
+        </button>
+      </div>
+    </div>
+    <p
+      id="msg-bazar-enviado"
+      style="display:none;color:var(--safira);font-weight:600;font-size:.85rem;margin-top:10px;"
+    ></p>
+  </div>
+  <!-- CALCULADORA -->
+  <div class="subpainel" id="sp-reuniao">
+    <h2>
+      Calculadora de custo de reunião
+    </h2>
+    <p class="rodape-nota">
+      Veja o custo estimado antes de agendar.
+    </p>
+    <div class="calc-grid">
+      <div>
+        <label
+          class="rotulo"
+          for="calc-duracao"
+        >
+          Duração (minutos)
+        </label>
+        <input
+          type="number"
+          id="calc-duracao"
+          value="60"
+          min="1"
+        >
+      </div>
+      <div>
+        <label
+          class="rotulo"
+          for="calc-pessoas"
+        >
+          Número de pessoas
+        </label>
+        <input
+          type="number"
+          id="calc-pessoas"
+          value="6"
+          min="1"
+        >
+      </div>
+      <div>
+        <label
+          class="rotulo"
+          for="calc-valorhora"
+        >
+          Custo médio/hora por pessoa (R$)
+        </label>
+        <input
+          type="number"
+          id="calc-valorhora"
+          value="80"
+          min="1"
+        >
+      </div>
+    </div>
+    <div class="resultado-custo">
+      <div class="obs">
+        Custo estimado da reunião
+      </div>
+      <div
+        class="valor num"
+        id="resultado-valor"
+      >
+        R$ 480,00
+      </div>
+      <div
+        class="obs"
+        id="resultado-obs"
+      >
+        6 pessoas × 60 min × R$ 80,00/h
+      </div>
+    </div>
+  </div>
+  <!-- FORMULÁRIOS -->
+  <div class="subpainel" id="sp-formularios">
+    <h2>
+      Formulários digitais
+    </h2>
+    <p class="rodape-nota">
+      Substitua o papel. Clique no formulário para abrir.
+    </p>
+    <div
+      class="lista-formularios"
+      id="lista-formularios"
+    ></div>
+    <div
+      class="caixa-formulario"
+      id="caixa-formulario"
+      style="display:none;margin-top:20px;"
+    >
+      <h3
+        id="titulo-formulario"
+        style="font-size:.95rem;"
+      >
+        Formulário
+      </h3>
+      <label
+        class="rotulo"
+        for="form-descricao"
+      >
+        Descrição
+      </label>
+      <textarea
+        id="form-descricao"
+        placeholder="Descreva com detalhes..."
+      ></textarea>
+      <button
+        class="btn"
+        id="btn-enviar-form"
+        type="button"
+      >
+        Enviar
+      </button>
+      <button
+        class="btn contorno"
+        id="btn-cancelar-form"
+        type="button"
+      >
+        Cancelar
+      </button>
+      <p
+        class="confirmacao-envio"
+        id="confirmacao-formulario"
+      ></p>
+    </div>
+    <div
+      id="lista-formularios-enviados"
+      style="margin-top:20px;"
+    ></div>
+  </div>
+</div>
+<!-- ================= ADMINISTRADOR ================= -->
+<div class="painel-area" id="painel-adm">
+  <div class="subnav">
+    <label for="sa-estoque">
+      Estoque e validade
+    </label>
+    <label for="sa-consumo">
+      Gráficos de consumo
+    </label>
+    <label for="sa-impressao">
+      Relatório de impressão
+    </label>
+  </div>
+  <!-- ESTOQUE E VALIDADE -->
+  <div class="subpainel" id="sp-estoque">
+    <h2>
+      Estoque e validade
+    </h2>
+    <p class="rodape-nota">
+      Itens com validade próxima em destaque.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Setor</th>
+          <th>Qtd</th>
+          <th>Validade</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-estoque"></tbody>
+    </table>
+  </div>
+  <!-- CONSUMO -->
+  <div class="subpainel" id="sp-consumo">
+    <h2>
+      Consumo de energia e água por setor
+    </h2>
+    <p class="rodape-nota">
+      Gastos com recursos somados por setor. Em vermelho: setores acima de 60% do maior gasto.
+    </p>
+    <div id="grafico-consumo-detalhado">
+      <div class="cartao" id="consumo-setores"></div>
+    </div>
+  </div>
+  <!-- IMPRESSÃO -->
+  <div class="subpainel" id="sp-impressao">
+    <h2>
+      Ranking de impressões por departamento
+    </h2>
+    <p class="rodape-nota">
+      Identifique gargalos e oportunidades de redução.
+    </p>
+    <div style="margin-bottom:16px;">
+      <label
+        class="rotulo"
+        for="filtro-impressoes"
+      >
+        Filtrar por
+      </label>
+      <select id="filtro-impressoes">
+        <option value="todos">
+          Todos os departamentos
+        </option>
+        <option value="critico">
+          Apenas críticos (acima de 3000)
+        </option>
+        <option value="normal">
+          Apenas normais (até 3000)
+        </option>
+      </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Posição</th>
+          <th>Departamento</th>
+          <th>Impressões/mês</th>
+          <th>Classificação</th>
+        </tr>
+      </thead>
+      <tbody id="tabela-impressao"></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- MÓDULO ADICIONAL: EMPRESA+EFICIÊNCIA
+     As telas e o conteúdo anteriores do Portal E&E foram preservados. -->
+<div class="painel-area" id="painel-ee">
+<section id="empresa-eficiencia" aria-label="Gestão de recursos">
+
+
+  <div class="ee-layout">
+    <nav class="ee-menu" aria-label="Navegação Empresa+Eficiência">
+      <button type="button" class="ativo" data-ee-page="recursos">Recursos</button>
+      <button type="button" data-ee-page="estoque">Estoque e materiais</button>
+      <button type="button" data-ee-page="desperdicios">Desperdícios e perdas</button>
+      <button type="button" data-ee-page="acoes">Plano de ação</button>
+      <button type="button" data-ee-page="resultados">Resultados</button>
+      <button type="button" data-ee-page="relatorios">Relatórios</button>
+      <button type="button" data-ee-page="alertas">Notificações e alertas</button>
+      <button type="button" data-ee-page="configuracoes">Configurações</button>
+    </nav>
+
+    <div class="ee-conteudo">
+      <section class="ee-pagina ativa" data-ee-view="recursos">
+        <div class="ee-titulo-pagina"><div><h2>Gestão de recursos</h2><p>Registre consumo, gastos e setor responsável.</p></div></div>
+        <form id="ee-form-recurso" class="ee-form">
+          <label>Tipo de recurso<select name="tipo" required><option value="">Selecione</option><option>Água</option><option>Energia</option><option>Materiais</option><option>Outros</option></select></label>
+          <label>Quantidade utilizada<input name="quantidade" type="number" min="0.01" step="0.01" required></label>
+          <label>Unidade<input name="unidade" placeholder="L, kWh, unidades..." required></label>
+          <label>Valor gasto (R$)<input name="valor" type="number" min="0" step="0.01" required></label>
+          <label>Data<input name="data" type="date" required></label>
+          <label>Setor responsável<input name="setor" required placeholder="Ex.: Administrativo"></label>
+          <label class="ee-largo">Observações<textarea name="observacoes" rows="2"></textarea></label>
+          <button class="ee-btn" type="submit">Registrar recurso</button>
+        </form>
+        <article class="ee-card"><h3>Histórico de recursos</h3><div class="ee-tabela-wrap"><table><thead><tr><th>Data</th><th>Recurso</th><th>Quantidade</th><th>Gasto</th><th>Setor</th><th></th></tr></thead><tbody id="ee-lista-recursos"></tbody></table></div></article>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="estoque">
+        <div class="ee-titulo-pagina"><div><h2>Estoque e materiais</h2><p>Cadastre itens e controle entradas, saídas, perdas e validade.</p></div></div>
+        <form id="ee-form-estoque" class="ee-form">
+          <label>Material ou produto<input name="nome" required></label>
+          <label>Setor<input name="setor" required></label>
+          <label>Quantidade inicial<input name="quantidade" type="number" min="0" step="1" required></label>
+          <label>Quantidade mínima<input name="minimo" type="number" min="0" step="1" value="1" required></label>
+          <label>Validade (se aplicável)<input name="validade" type="date"></label>
+          <button class="ee-btn" type="submit">Cadastrar material</button>
+        </form>
+        <article class="ee-card"><h3>Materiais cadastrados</h3><div class="ee-tabela-wrap"><table><thead><tr><th>Material</th><th>Setor</th><th>Quantidade</th><th>Validade</th><th>Status</th><th>Ações</th></tr></thead><tbody id="ee-lista-estoque"></tbody></table></div></article>
+        <p class="ee-nota">Use Entrada ou Saída para atualizar a quantidade. A opção Perda registra material danificado ou perdido.</p>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="desperdicios">
+        <div class="ee-titulo-pagina"><div><h2>Desperdícios e perdas</h2><p>Registre ocorrências para identificar problemas recorrentes.</p></div></div>
+        <form id="ee-form-perda" class="ee-form">
+          <label>Tipo de recurso<select name="tipo" required><option>Água</option><option>Energia</option><option>Materiais</option><option>Alimentos</option><option>Outros</option></select></label>
+          <label>Quantidade perdida<input name="quantidade" type="number" min="0.01" step="0.01" required></label>
+          <label>Unidade<input name="unidade" placeholder="L, kWh, kg..." required></label>
+          <label>Data<input name="data" type="date" required></label>
+          <label>Setor<input name="setor" required></label>
+          <label>Custo estimado (R$)<input name="custo" type="number" min="0" step="0.01" required></label>
+          <label class="ee-largo">Motivo do desperdício<input name="motivo" required></label>
+          <label class="ee-largo">Observações<textarea name="observacoes" rows="2"></textarea></label>
+          <button class="ee-btn" type="submit">Registrar perda</button>
+        </form>
+        <article class="ee-card"><h3>Histórico de desperdícios</h3><div class="ee-tabela-wrap"><table><thead><tr><th>Data</th><th>Recurso</th><th>Quantidade</th><th>Setor</th><th>Motivo</th><th>Custo</th><th></th></tr></thead><tbody id="ee-lista-perdas"></tbody></table></div></article>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="acoes">
+        <div class="ee-titulo-pagina"><div><h2>Plano de ação</h2><p>Organize medidas para reduzir desperdícios.</p></div></div>
+        <form id="ee-form-acao" class="ee-form">
+          <label>Problema identificado<input name="problema" required></label>
+          <label>Possível causa<input name="causa" required></label>
+          <label class="ee-largo">Ação que será realizada<input name="acao" required></label>
+          <label>Responsável ou setor<input name="responsavel" required></label>
+          <label>Prazo<input name="prazo" type="date" required></label>
+          <label>Situação<select name="situacao"><option>Pendente</option><option>Em andamento</option><option>Concluída</option></select></label>
+          <button class="ee-btn" type="submit">Cadastrar ação</button>
+        </form>
+        <article class="ee-card"><h3>Atividades cadastradas</h3><div class="ee-tabela-wrap"><table><thead><tr><th>Problema</th><th>Ação</th><th>Responsável</th><th>Prazo</th><th>Situação</th><th></th></tr></thead><tbody id="ee-lista-acoes"></tbody></table></div></article>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="resultados">
+        <div class="ee-titulo-pagina"><div><h2>Resultados</h2><p>Indicadores calculados a partir dos registros cadastrados.</p></div></div>
+        <label class="ee-filtro">Período <select id="ee-filtro-periodo"><option value="mes">Mês atual</option><option value="trimestre">Últimos 3 meses</option><option value="ano">Ano atual</option><option value="todos">Todo o período</option></select></label>
+        <div id="ee-resultados-detalhados" class="ee-kpis"></div>
+        <div class="ee-grade-dupla"><article class="ee-card"><h3>Tipos de desperdício</h3><div id="ee-grafico-perdas" class="ee-barras"></div></article><article class="ee-card"><h3>Ações por situação</h3><div id="ee-grafico-acoes" class="ee-barras"></div></article></div>
+        <p class="ee-nota">Os indicadores refletem somente os dados registrados neste navegador. Não representam resultados reais da empresa sem dados reais.</p>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="relatorios">
+        <div class="ee-titulo-pagina"><div><h2>Relatórios</h2><p>Consulte e exporte os dados cadastrados.</p></div></div>
+        <div class="ee-botoes"><button class="ee-btn" id="ee-exportar-csv" type="button">Baixar relatório CSV</button><button class="ee-btn ee-btn-secundario" id="ee-imprimir" type="button">Imprimir / salvar em PDF</button></div>
+        <div id="ee-resumo-relatorio" class="ee-card"></div>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="alertas">
+        <div class="ee-titulo-pagina"><div><h2>Notificações e alertas</h2><p>Avisos gerados com base nos limites e registros disponíveis.</p></div></div>
+        <article class="ee-card"><div id="ee-lista-alertas"></div></article>
+      </section>
+
+      <section class="ee-pagina" data-ee-view="configuracoes">
+        <div class="ee-titulo-pagina"><div><h2>Configurações e perfil</h2><p>Atualize as informações do seu perfil de funcionário.</p></div></div>
+        <form id="ee-form-perfil" class="ee-form">
+          <label>Nome completo<input name="responsavel" required></label>
+          <label>Setor / departamento<input name="empresa"></label>
+          <label>E-mail<input name="email" type="email" required></label>
+          <label>Cargo / função<input name="ramo"></label>
+          <label class="ee-largo ee-check"><input name="notificacoes" type="checkbox" checked> Ativar avisos na plataforma</label>
+          <button class="ee-btn" type="submit">Salvar configurações</button>
+        </form>
+        <p class="ee-nota">A demonstração não possui servidor nem recuperação real de senha. Não use senhas pessoais neste protótipo.</p>
+      </section>
+    </div>
+  </div>
+</section>
+</div>
+
+</main>
+<footer>
+  Portal E&E — Empresa & Eficiente. Gestão sustentável com tecnologia.
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
